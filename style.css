@@ -1,0 +1,49 @@
+body{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(167,184,226,1) 85%, rgba(148,187,233,1) 100%);
+    font-family: cursive;
+}
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  #todo-input {
+    width: 60%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  #add-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(147, 228, 255);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #todo-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .todo-item {
+    background-color: rgb(255, 169, 233);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .delete-button {
+    background-color: rgb(255, 164, 209);
+    color: rgb(0, 0, 0);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
