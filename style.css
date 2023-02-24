@@ -1,11 +1,14 @@
 body{
-    background: rgb(238,174,202);
-    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(167,184,226,1) 85%, rgba(148,187,233,1) 100%);
-    font-family: cursive;
+  background-color:#5D4E6D;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+ h1 {
+  color: white;
+ }
 .container {
     max-width: 600px;
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
   }
   
@@ -19,10 +22,11 @@ body{
   #add-button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: rgb(147, 228, 255);
+    background-color:#AE76A6;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    color: white;
   }
   
   #todo-list {
@@ -31,7 +35,7 @@ body{
   }
   
   .todo-item {
-    background-color: rgb(255, 169, 233);
+    background-color: #B8B8FF;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -40,10 +44,9 @@ body{
   }
   
   .delete-button {
-    background-color: rgb(255, 164, 209);
+    background-color: #9381FF;
     color: rgb(0, 0, 0);
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
   }
-  
