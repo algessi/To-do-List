@@ -1,5 +1,5 @@
 body{
-  background-color:#5D4E6D;
+  background-color:#191825;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -22,7 +22,7 @@ body{
   #add-button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color:#AE76A6;
+    background-color:#865DFF;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -35,18 +35,31 @@ body{
   }
   
   .todo-item {
-    background-color: #B8B8FF;
+    background-color: #D09CFA;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
   }
+
+  .task-name {
+    flex-grow: 1;
+  }
+
+  .buttons-container {
+    display: flex;
+  }
   
-  .delete-button {
-    background-color: #9381FF;
-    color: rgb(0, 0, 0);
+  .delete-button, .edit-button {
+    background-color: #400D51;
+    color: white;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 5px;
+  }
+
+  .edit-button {
+    margin-left: 0;
   }
