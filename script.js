@@ -1,53 +1,54 @@
-const input = document.querySelector("#todo-input");
-const addButton = document.querySelector("#add-button");
-const todoList = document.querySelector("#todo-list");
+const taskInput = document.getElementById('task-input');
+const addTaskBtn = document.getElementById('add-task-btn');
+const taskList = document.getElementById('task-list');
 
-addButton.addEventListener("click", function () {
-  if (input.value === "") {
-    alert("Please enter a task!");
-    return;
-  }
+function addTask() {
+  if (taskInput.value !== '') {
+    const task = document.createElement('li');
+    const taskText = document.createElement('span');
+    const deleteBtn = document.createElement('button');
+    const renameBtn = document.createElement('button');
+    
+    taskText.textContent = taskInput.value;
+    deleteBtn.textContent = 'Delete';
+    renameBtn.textContent = 'Rename';
 
-  const newTodo = document.createElement("li");
-  newTodo.classList.add("todo-item");
-  newTodo.innerHTML = `
-    <span class="todo-name">${input.value}</span>
-    <button class="edit-button">Edit</button>
-    <button class="delete-button">Delete</button>
-  `;
-  todoList.appendChild(newTodo);
-  input.value = "";
-});
+    task.appendChild(taskText);
+    task.appendChild(renameBtn);
+    task.appendChild(deleteBtn);
 
-input.addEventListener("keyup", function (event) {
-  if (event.keyCode === 13) {
-    if (input.value === "") {
-      alert("Please enter a task!");
-      return;
-    }
+    taskList.appendChild(task);
+    taskInput.value = '';
 
-    addButton.click();
-  }
-});
-
-todoList.addEventListener("click", function (event) {
-  if (event.target.classList.contains("delete-button")) {
-    event.target.parentElement.remove();
-  } else if (event.target.classList.contains("edit-button")) {
-    const todoName = event.target.parentElement.querySelector(".todo-name");
-    const todoInput = document.createElement("input");
-    todoInput.type = "text";
-    todoInput.value = todoName.textContent;
-    todoName.replaceWith(todoInput);
-
-    const saveButton = document.createElement("button");
-    saveButton.textContent = "Save";
-    event.target.replaceWith(saveButton);
-
-    saveButton.addEventListener("click", function () {
-      todoName.textContent = todoInput.value;
-      todoInput.replaceWith(todoName);
-      saveButton.replaceWith(event.target);
+    deleteBtn.addEventListener('click', () => {
+      task.remove();
     });
+
+    renameBtn.addEventListener('click', () => {
+      const taskTextInput = document.createElement('input');
+      taskTextInput.value = taskText.textContent;
+      task.replaceChild(taskTextInput, taskText);
+      taskTextInput.focus();
+      taskTextInput.addEventListener('blur', () => {
+        taskText.textContent = taskTextInput.value;
+        task.replaceChild(taskText, taskTextInput);
+      });
+      taskTextInput.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+          taskText.textContent = taskTextInput.value;
+          task.replaceChild(taskText, taskTextInput);
+        }
+      });
+    });
+  } else {
+    alert('Please enter a task before adding!');
+  }
+}
+
+addTaskBtn.addEventListener('click', addTask);
+
+taskInput.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    addTask();
   }
 });
